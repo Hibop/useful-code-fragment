@@ -3,7 +3,7 @@
  */
 
 <template>
-<div class="hamburger" :class="{'is-folded': 'propsFolded'">
+<div class="hamburger" :class="{'is-folded': propsFolded}">
   <span class="line"><span>
 </div>
 </template>
