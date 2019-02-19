@@ -25,6 +25,8 @@ Object.prototype.reduce = function (fn, init) {
 }
 
 
+// 对于返回boolean类型的， 只支持返回对key boolean判断
+
 [
   'forEach',
   'map',
