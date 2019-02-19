@@ -23,3 +23,20 @@ Object.prototype.reduce = function (fn, init) {
     init
   )
 }
+
+
+[
+  'forEach',
+  'map',
+  'filter',
+  'some',
+  'any',
+  'reduce'
+].forEach(fn => {
+  Object.prototype[fn] = function(cb, init = null) {
+    return Object.keys(this)[fn](
+      k => cb.call(this, this[k], k, this),
+      init
+    );
+  };
+});
