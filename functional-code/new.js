@@ -13,8 +13,27 @@ if(func.prototype !== null) {
 }
 var ret = func.apply(obj, Array.prototype.slice.call(arguments, 1));
 
-if(typeof ret ==== 'object' || typeof ret ==== 'function' || ret !== null) {
+if(typeof ret === 'object' || typeof ret === 'function' || ret !== null) {
   return ret;
 };
 return obj;
+}
+
+// ut
+New(Fn, 1, 2)   // ==> New Fn(1, 2)
+
+// 如果New(Fn)(1)(2)时, 难度增加其实要cury化
+
+var New = (fn) => {
+var obj = {};
+  if(func.prototype !== null) {
+    obj.__proto__ = fn.prototype;
+  }
+  const ret = (...arg) => {
+    return fn.apply(obj, ...arg);
+  }
+  if(typeof ret === 'object' || typeof ret === 'function' || ret !== null) {
+    return ret;
+  };
+  return obj;
 }
