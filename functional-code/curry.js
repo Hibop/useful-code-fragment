@@ -25,5 +25,5 @@ const looseCurry = (fn, arity = fn.length, nextCurried) =>
 
 // Test 
 var fn  =  (a1, a2, z3) => (a1 + a2 + a3);
-looseCurry(fn)
+var fnc = looseCurry(fn)
 
