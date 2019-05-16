@@ -18,7 +18,12 @@ const looseCurry = (fn, arity = fn.length, nextCurried) =>
   (nextCurried = prevArgs => 
     (...nextArgs) => {
       const args =  prevArgs.concat(nextArgs);
-      return arg.length >= arity ? fn(...args) : nextCurried(args)
+      return args.length >= arity ? fn(...args) : nextCurried(args)
     }
   )([])
+
+
+// Test 
+var fn  =  (a1, a2, z3) => (a1 + a2 + a3);
+looseCurry(fn)
 
