@@ -1,6 +1,6 @@
 // 记忆函数
 const memoized = (fn) => {
-  const mTable= {};
+  const mTable= {}; // 此处最好修改为cache = Object.create(null);
   return (arg) => mTable[arg] || (mTable[arg] = fn(arg));
 }
 
