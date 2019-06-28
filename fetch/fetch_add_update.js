@@ -4,6 +4,8 @@
 // 3. fetchUpdate()
 // 一般创建页面是一个新页面， 故我们fetch数据最好放在打开新页面时触发，按需拉取数据
 
+import { mapActions } from 'vuex';
+
 export default {
   props: {
     id: Number,
@@ -11,24 +13,74 @@ export default {
   },
   data() {
     return {
+      isAdd: true,
       formData: {
       // ...
       }
-    }
+    };
   }  
   watch: {
-    visible: {
-      if() {
+    visible(value){
+      if(value) {
         this.initData();
       } else {
+        this.destroyData();
       }
     }
   },
     
   methods: {
+    ...mapActions('namespace', [
+      'postJobAdd',
+      'getJobInfo',
+      'updateJobEdit'
+    ]),
+      
+    initData() {
+      if(this.isAdd) {
+        
+      } else {
+        this.fetchInfo();
+      }
+      this.formData = Object.assgin({}, {
+        name: '',
+        pwd: ''
+      })
+    },
+      
+    destroyData() {},
+      
+    handleCheck() {
+      const {name} = this.formData;
+      if(reg.test(name)) {
+         return smg....
+      }
+       reuturn true;
+    },
+         
+    handleCommit() {
+      // 主要完成校验
+      if(!this.handleCheck) return;
+      this.handleFecth()
+    }
+    handleFecth() {
+      // 主要完成数据组装
+      let param = {};
+      if(this.isAdd) {
+         param = {
+            ...parma,
+           id,
+         }
+         this.fetchAdd(param);
+      } else {
+        this.fetchUpdate(param);
+      }
+    },
     
-    handleCheck() {},
-    handleFecth() {}
+    handleFecthDone() {
+      // 刷新列表、关闭弹窗等等???或者创建失败错误处理
+      
+    }
     fetchAdd() {},
     fecthInfo() {},
     fetchUpdate() {}
