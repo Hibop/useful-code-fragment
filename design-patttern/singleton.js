@@ -3,12 +3,14 @@ var Singleton = (function(){
     var instance;
     var CreateSingleton = function (name) {
         this.name = name;
-
+        this.getName();
+        
         if(instance) {
             return instance;
         }
+        
+        // 可以 if(!instance)  {instance = new CreateSingleton(name)}
         // 打印实例名字
-        this.getName();
 
         // instance = this;
         // return instance;
@@ -29,7 +31,7 @@ var b = new Singleton('b');
 console.log(a===b);
 
 
-// 函数型单例
+// 函数闭包型单例
 export default function singleton(fn) {
   let instance;
   return function() {
