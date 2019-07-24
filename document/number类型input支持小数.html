@@ -4,6 +4,25 @@
 	<input type="submit" value="提交"/>
 </form>
 
+
+<!-- datalist的运用： 输入框输入的值会自动匹配datalist下拉框的值，input的list属性值必须和datalist的id值一致 -->
+<input type="text" name="" list="same">
+<datalist id="same">
+   <option>123</option>
+   <option>567</option>
+</datalis>
+
+
+
+<!-- output实现双向数据绑定 -->
+<form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+    <input type="range" name="b" value="50" /> +
+    <input type="number" name="a" value="10" /> =
+    <output name="result"></output>
+</form>
+
+
+
 <!-- 
 ## input元素的23 种type类型
 - button
@@ -41,6 +60,11 @@ minlength
 pattern 正则
 readonly
 size: 输入框的长度大小
+
+
+
+<progress> 进度条max value
+
 
 
 
