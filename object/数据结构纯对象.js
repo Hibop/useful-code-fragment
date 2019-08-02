@@ -1,3 +1,8 @@
+/**
+ * @param {Object[]} args 对象数组后面相同key值后面会覆盖前面的
+ * @example: pureObj({a: 1}, {b: 2, c: 3}, {c: 8})  => {a: 1, b: 2, c: 8}
+ */
+
 function pureObj(...args) {
   const obj = Object.create(null);
   const mergeArgs = Object.assign({}, ...args);
