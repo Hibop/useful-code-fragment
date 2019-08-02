@@ -42,10 +42,11 @@ function pureArray(arr = [], ...args) {
 
 let arr = [],
   pure = pureArray([]),
-  n = 10000000;
+  n = 10000000,
+  proto = Array.prototype.push;
 for (let i = 0; i < n; i++) {
   arr.push(i);
-  Array.prototype.push.call(pure, i);
+  proto.call(pure, i); // 由于pure没有原型对象，所以可以数组的原型方法在pure上下文中执行
 }
 
 console.time('arr');
