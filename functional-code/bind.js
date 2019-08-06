@@ -17,6 +17,7 @@ Function.prototype.nBind = function(context, ...args) {
     return self.apply(ctx, a); 
   }
   fr.prototype = self.prototype;
+  return fr;
 }
 
 
