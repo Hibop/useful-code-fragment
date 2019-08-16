@@ -26,3 +26,8 @@ typeOf('s')   // 'string'
 typeOf({})   // 'object'
 typeOf(document)   // 'document'
 typeOf(new Set())   // 'set'
+
+
+// 一行代码
+const type = data => Object.prototype.toString.call(data).replace(/^\[object (.+)\]$/, '$1').toLowerCase()
+type({}) // object
