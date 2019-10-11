@@ -91,13 +91,6 @@ const $ajax = (url='', data={}, config={}) => {
     return result
   }, {})
 }
-;;[
-  'get',
-  'delete',
-  'post',
-  'pust'
-]
-
 
 const get = (url, params, config) => {
   const merged = Object.assign({}, config, {
