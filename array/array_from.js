@@ -14,6 +14,6 @@ const cities = [
     { name: 'New York', visited: 'yes' }
 ];
 
-const cityNames = Array.from(cities, ({ name}) => name);
+const cityNames = Array.from(cities, ({name}) => name);
 console.log(cityNames);
 // outputs ["Paris", "Lyon", "Marseille", "Rome", "Milan", "Palermo", "Genoa", "Berlin", "Hamburg", "New York"]

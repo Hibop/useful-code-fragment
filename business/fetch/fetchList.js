@@ -14,9 +14,9 @@ function jobListGet() {
         errcode: 0,
         message: '',
         data: [{kkk: 222}, {kkk: 555}]
-      },
+      };
       resolve(response);
-    }, timeout)
+    }, timeout);
   })
 }
 
@@ -25,7 +25,7 @@ isSucess && <Table />
 (!isLoading && !isSucess) && <TimeOut />
 
 
-async fetch() {
+async function fetch() {
   this.isLoading = true;
   this.isSucess = false;
   this.noDataText = '';
@@ -34,7 +34,7 @@ async fetch() {
     this.isLoading = false;
     if(!json.data) {
       // this.isLoading = false;
-      this.$message(...)
+      this.$message('失败')
       this.isSucess = false;
       this.noDataText = '加载失败, 暂无数据';
       return ;
@@ -44,12 +44,12 @@ async fetch() {
       this.noDataText = '无数据';
     }
     this.tableList = json.data;
-  }).catch(err) {
-      this.$message(...)
+  }).catch(err => {
+      this.$message('失败');
       this.isLoading = false;
       this.isSucess = false;
       this.loadText = '网络连接超时，请求异常!';
-   }
+  });
 
 
 fetchList(param) {
@@ -61,7 +61,7 @@ fetchList(param) {
     searchText, // 过滤查找
   }
   // **important** : 筛选时分页要重置到page = 1, 而分页切换时筛选不可清空
-  
+
   this.loadText = '正在加载...'; // 数据加载界面和表格数组显示 if... else
   this.template = [];
   this.jobListGet(params).then(json => {

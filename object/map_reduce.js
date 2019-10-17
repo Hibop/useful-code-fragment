@@ -12,9 +12,9 @@ Object.prototype.map = function(fn) {
 
 // 函数式写法: 最外层的function不能使用箭头函数，否则this => window
 Object.prototype.map = function(fn) {
-return Object.keys(this).map(
-  k => fn.call(this, this[k], k, this)
-)
+  return Object.keys(this).map(
+    k => fn.call(this, this[k], k, this)
+  )
 }
 // reduce方法
 Object.prototype.reduce = function (fn, init) {

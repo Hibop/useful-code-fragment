@@ -7,7 +7,7 @@
 
 
  */
- 
+
 // TODO: 待完善
 const MAX_ARRAY_LENGTH = 4294967295; // 最大的数组长度
 const LAZY_FILTER_FLAG = 1; // filter方法的标记
@@ -47,7 +47,7 @@ class LazyWrap {
             break outer;
           }
         } else {
-          
+
         }
       }
 

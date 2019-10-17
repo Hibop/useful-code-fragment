@@ -18,7 +18,7 @@ export default {
       // ...
       }
     };
-  }  
+  },
   watch: {
     visible(value){
       if(value) {
@@ -28,17 +28,17 @@ export default {
       }
     }
   },
-    
+
   methods: {
     ...mapActions('namespace', [
       'postJobAdd',
       'getJobInfo',
       'updateJobEdit'
     ]),
-      
+
     initData() {
       if(this.isAdd) {
-        
+
       } else {
         this.fetchInfo();
       }
@@ -47,22 +47,23 @@ export default {
         pwd: ''
       })
     },
-      
+
     destroyData() {},
-      
+
     handleCheck() {
       const {name} = this.formData;
       if(reg.test(name)) {
-         return smg....
+         return this.$message.warming('请输入合法name！')
       }
-       reuturn true;
+       return true;
     },
-         
+
     handleCommit() {
       // 主要完成校验
       if(!this.handleCheck) return;
       this.handleFecth()
-    }
+    },
+
     handleFecth() {
       // 主要完成数据组装
       let param = {};
@@ -76,11 +77,12 @@ export default {
         this.fetchUpdate(param);
       }
     },
-    
+
     handleFecthDone() {
       // 刷新列表、关闭弹窗等等???或者创建失败错误处理
-      
-    }
+
+    },
+
     fetchAdd() {},
     fecthInfo() {},
     fetchUpdate() {}

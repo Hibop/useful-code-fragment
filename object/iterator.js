@@ -5,11 +5,13 @@ Object.prototype[Symbol.iterator] = function() {
   var aKey = Object.keys(this);
   var index = 0;
   var _this = this;
-  
-  return next() {
-     return index < aKey.length
-       ? {value: _this[aKey[index++]], done: false} 
-       : {value: undefined, done: true}
+
+  return {
+    next() {
+       return index < aKey.length
+         ? {value: _this[aKey[index++]], done: false}
+         : {value: undefined, done: true}
+    }
   }
 }
 
@@ -29,6 +31,6 @@ Object.prototype[Symbol.iterator] = function *() {
     yeild {
       key,
       value: this[key]
-    }
+    };
   }
 }
