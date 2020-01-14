@@ -25,3 +25,28 @@ Date.prototype.format = function (reg) {
     }
   }
 }
+
+// 时间戳number ==> dates
+function timestamp2date(stamp = 0) {
+  let date = new Date();
+  date.setTime(stamp);
+  return date;
+  
+  // 方法二
+  return new Date(stamp);
+} 
+
+// date => stamp时间戳
+function date2stamp(date) {
+   return +date;
+  // 方法二
+  return ss.getTime()
+} 
+
+
+// 提交某一时间段的时间戳0
+// 一个月前 new Date().setMonth(-1)  ==> stamp; 
+// 常见的0点计时 new Date().setHours(0,0,0,0)
+
+
+
