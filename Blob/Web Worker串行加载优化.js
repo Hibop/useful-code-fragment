@@ -25,3 +25,15 @@ worker.addEventListener('message', function(evt) {
 
 worker.postMessage({num1: 20, num2: 10});
 console.log('[main] Main is initialized.');
+
+
+// work-thread
+self.addEventListener('message', function (evt) {
+    const num1 = evt.data.num1;
+    const num2 = evt.data.num2;
+    const result = num1 + num2;
+    console.log('[worker] num1=' + num1 + ', num2=' + num2);
+    self.postMessage({result: result});
+}, false);
+
+console.log('[worker] Worker is initialized.');
